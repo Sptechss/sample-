@@ -2,10 +2,10 @@
     <div class="col-sm-8">
         <div class="card">
             <div class="card-body">
-                <form>
+                <form method="post" action="/admin/Subjects/add<?= (isset($id))? '/' .$id:''?>">
                     <div class="form-group">
-                        <label for="my-input">class</label>
-                        <input id="my-input" class="form-control" type="text" name="">
+                        <label for="my-input">subject</label>
+                        <input id="my-input" class="form-control" type="text" name="subject" value="<?= (isset($old_data))? $old_data['subject']:''?>">
                     </div>
                     <div class="form-group">
                         <button class="btn" style="background-color:#44a2d2;color:white">save</button>

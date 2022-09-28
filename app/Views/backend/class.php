@@ -2,10 +2,10 @@
     <div class="col-sm-12">
         <div class="row">
             <div class="col-sm-6">
-                <h3>Students subject list</h3>
+                <h3>Students class list</h3>
             </div>
             <div class="col-sm-6 text-right">
-                <a href="/admin/subjects/add" class="btn  mb-2" style="background-color:#44a2d2;color:white">Add</a>
+                <a href="/admin/studentclass/add" class="btn btn-primary mb-2">add</a>
             </div>
         </div>
         <div class="card">
@@ -14,19 +14,19 @@
                     <thead>
                         <tr class="text-white" style="background-color:#44a2d2;">
                             <th>id</th>
-                            <th>subjects</th>
+                            <th>class name</th>
                             <th>action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $i = 1;
-                        foreach ($subjects as $sub) {?>
+                        foreach ($stdclass as $cls) {?>
                         <tr>
-                            <td><?= $i++ ?></td>
-                            <td><?= $sub['subject']?></td>
+                            <td><?= $i++?></td>
+                            <td><?= $cls['class']?></td>
                             <td>
-                                <a href="/admin/subjects/add/<?= $sub['id']?>" class="btn btn-success">Edit</a>
-                                <a href="/admin/subjects/delete/<?= $sub['id']?>" class="btn btn-danger" onclick="alert('you want to delete subject')">Delete</a>
+                            <a href="/admin/studentclass/add/<?= $cls['id']?>" class="btn btn-success">edit</a>
+                            <a href="/admin/studentclass/delete/<?= $cls['id']?>" class="btn btn-danger" onclick="alert('you want to delete this subject')">delete</a>
                             </td>
                         </tr>
                         <?php }?>
@@ -35,3 +35,6 @@
             </div>
         </div>
     </div>
+</div>
+
+
