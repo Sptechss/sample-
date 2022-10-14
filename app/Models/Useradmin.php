@@ -4,17 +4,17 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Subject extends Model
+class Useradmin extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'subjected';
+    protected $table            = 'admin';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['class_id','subjects'];
+    protected $allowedFields    = ['username','password'];
 
     // Dates
     protected $useTimestamps = true;

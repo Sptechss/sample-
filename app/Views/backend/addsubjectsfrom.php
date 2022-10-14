@@ -7,6 +7,12 @@
                         <label for="my-input">subject</label>
                         <input id="my-input" class="form-control" type="text" name="">
                     </div>
+                    <select>
+                        <?php
+                        foreach ($vstudentclass as $class) {?>
+                        <option><?= $class['class']?></option>
+                        <?php }?>
+                    </select>
                     <div class="form-group">
                         <button class="btn" style="background-color:#44a2d2;color:white">save</button>
                     </div>

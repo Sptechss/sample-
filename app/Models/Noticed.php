@@ -4,17 +4,17 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Subject extends Model
+class Noticed extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'subjected';
+    protected $table            = 'notices';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['class_id','subjects'];
+    protected $allowedFields    = ['notices','status'];
 
     // Dates
     protected $useTimestamps = true;

@@ -2,22 +2,24 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <title>Rent App</title>
+  <meta charset="utf-8">
+  <title>Result management App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
-  <meta content="Themesbrand" name="author" />
+  <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
+  <meta content="Themesbrand" name="author">
   <!-- App favicon -->
   <link rel="shortcut icon" href="/assets/backend/images/favicon.ico">
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.12.1/datatables.min.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.12.1/datatables.min.css">
   <!-- Bootstrap Css -->
-  <link href="/backend/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+  <link href="/backend/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
   <!-- Icons Css -->
-  <link href="/backend/css/icons.min.css" rel="stylesheet" type="text/css" />
+  <link href="/backend/css/icons.min.css" rel="stylesheet" type="text/css">
   <!-- App Css-->
-  <link href="/backend/css/app.min.css" id="app-style" rel="stylesheet" type="text/css"/>
+  <link href="/backend/css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet">
   <link href="/backend/css/all.min.css" rel="stylesheet">
   <link href="/backend/css/backend-style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
 </head>
 
@@ -29,11 +31,9 @@
           <!-- LOGO -->
           <div class="navbar-brand-box">
             <a href="" class="logo logo-light">
-              <span class="logo-sm">
-                <img src="/backend/images/logo-sm.png" alt="" height="22">
-              </span>
+             
               <span class="logo-lg">
-                <img src="/backend/images/logo-light.png" alt="" height="17">
+                <img src="/images/logo/logo.png" alt="logo" height="40"> 
               </span>
             </a>
           </div>
@@ -45,7 +45,7 @@
         <!-- Search input -->
         <div class="search-wrap" id="search-wrap">
           <div class="search-bar">
-            <input class="search-input form-control" placeholder="Search" />
+            <input class="search-input form-control" placeholder="Search">
             <a href="#" class="close-search toggle-search" data-target="#search-wrap">
               <i class="mdi mdi-close-circle"></i>
             </a>
@@ -54,8 +54,9 @@
 
           <div class="dropdown d-inline-block">
             <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img class="rounded-circle header-profile-user" src="/backend/images/users/user-1.jpg" alt="Header Avatar">
-              <span class="d-none d-xl-inline-block ml-1">Admin</span>
+              <img class="rounded-circle header-profile-user" src="/images/images.png" alt="Header Avatar">
+              <?php    $session = session(); ?>
+              <span class="d-none d-xl-inline-block ml-1"><?php echo $session->user ?></span>
               <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
             </button>
             <div class="dropdown-menu dropdown-menu-right">
@@ -63,7 +64,7 @@
               <a class="dropdown-item" href="#"><i class="dripicons-user d-inlne-block text-muted mr-2"></i> Profile</a>
               <a class="dropdown-item d-block" href="#"><i class="dripicons-gear d-inlne-block text-muted mr-2"></i> Settings</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#"><i class="dripicons-exit d-inlne-block text-muted mr-2"></i> Logout</a>
+              <a class="dropdown-item" href="/admin/login/logout"><i class="dripicons-exit d-inlne-block text-muted mr-2"></i> Logout</a>
             </div>
           </div>
         </div>
@@ -107,6 +108,13 @@
                 <span>Result</span>
               </a>
             </li>
+
+            
+            <li><a href="/admin/notice">
+                <i class="fas fa-hourglass-half"></i>
+                <span>Notices</span>
+              </a>
+            </li>
           </ul>
           </li>
 
@@ -117,7 +125,7 @@
 
     <div class="main-content">
 
-      <div class="page-content">
+      <div class="page-content shadow">
         <div class="container-fluid">
           <?= $page ?>
         </div>
@@ -174,7 +182,7 @@
 
   <script src="/backend/js/pages/dashboard2.init.js"></script>
   <script src="/backend/libs/tinymce.min.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script src="/backend/assets/js/sublime.js?v=2.1"></script>
 
@@ -189,11 +197,10 @@
 
   <script>
     $(document).ready(function() {
-      $('#datatable').DataTable();
+      $('#resultdatatable').DataTable();
     });
   </script>
 
 
 </body>
-
 </html>

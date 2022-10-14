@@ -4,10 +4,11 @@ namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
 use App\Models\Studentcls;
 
-class Studentclass extends BaseController
+class Studentclass extends  Adminauth 
 {
     public function index()
     {
+        helper('alert_helper');
         $stdclass = new Studentcls();
         $page['stdclass'] = $stdclass->findAll();
         $data['page'] = view('backend/class',$page);
@@ -24,18 +25,19 @@ class Studentclass extends BaseController
           if($id)
           {
             $stdclass->update($id,$data);
+            $message = 'class updated successfuly';
            
           }
           else{
             $stdclass->insert($data);
+            $message = 'class inserted successfuly';
           }
-          return redirect()->to('admin/studentclass');
+          return redirect()->to('admin/studentclass')->with('message',$message);
         }
         if($id){
             $page['id'] = $id;
             $page['old_data'] = $stdclass->find($id);
         }
-
         $data['page'] = view('backend/classform',$page);
         return view('backend/template',$data);
     }

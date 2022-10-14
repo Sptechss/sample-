@@ -1,10 +1,18 @@
 <div classs="row">
     <div class="col-sm-12">
-        <h3>students list</h3>
-        <a href="/admin/students/add" class="btn  mb-2" style="background-color:#44a2d2;color:white">Add</a>
+        <?= alertMsg() ?>
+        <div class="row">
+            <div class="col-6">
+                <h2 class="text-capitalize">students list</h2>
+            </div>
+            <div class="col-6 text-right">
+                <a href="/admin/students/add" class="btn btn-outline-primary mb-2"><i class="fa-solid fa-plus"></i>  Add</a>
+            </div>
+        </div>
         <div class="card">
             <div class="card-body">
-                <table class="table table-bordered">
+                <div class="table-responsive">
+                <table class="table table-bordered "  id="resultdatatable">
                     <thead>
                         <tr class="text-white" style="background-color:#44a2d2;">
                             <th>id</th>
@@ -17,20 +25,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>sahil shaikh</td>
-                            <td>2nd year</td>
-                            <td>DT20221</td>
-                            <td>sahilshaikh@gmail.com</td>
-                            <td>male</td>
-                            <td>
-                                <a href="" class="btn btn-success">Edit</a>
-                                <a href="" class="btn btn-danger">Delete</a>
-                            </td>
-                        </tr>
+                        <?php $i = 1;
+                        foreach ($students as $std) { ?>
+
+                            <tr>
+                                <td><?= $i++ ?></td>
+                                <td><?= $std['name'] ?></td>
+                                <td><?= $std['class_id'] ?></td>
+                                <td><?= $std['rollno'] ?></td>
+                                <td><?= $std['email'] ?></td>
+                                <td><?= $std['gender'] ?></td>
+                                <td>
+                                    <a href="/admin/students/add/<?= $std['id'] ?>" ><i class="fa-sharp fa-solid fa-pen-to-square text-success"></i></a>
+                                    <a href="/admin/students/delete/<?= $std['id'] ?>"><i class="fa-solid fa-trash text-danger"></i></a>
+                                </td>
+                            </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
+                </div>
             </div>
         </div>
     </div>
+</div>
+
+

@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Subject extends Migration
+class Subjected extends Migration
 {
     public function up()
     {
@@ -12,11 +12,14 @@ class Subject extends Migration
 
             'id' => [
                 'type' => 'int',
-                'auto_increment'=> true,
+                'auto_increment' => true,
             ],
-            'subject' => [
+            'subjects' => [
                 'type' => 'varchar',
                 'constraint' => '200',
+            ],
+            'class_id' => [
+                'type' => 'int',
             ],
             'created_at' => [
                 'type' => 'DATETIME',
@@ -26,20 +29,19 @@ class Subject extends Migration
                 'type' => 'DATETIME',
                 'null' => true,
             ],
-
             'deleted_at' => [
                 'type' => 'DATETIME',
                 'null' => true,
             ]
         ]);
-        $this->forge->addPrimaryKey('id',true);
-        $this->forge->createTable('subject');
+        $this->forge->addPrimaryKey('id', true);
+        $this->forge->addforeignKey('class_id','studentclass', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->createTable('subjected');
     }
 
     public function down()
     {
-        $this->forge->dropTable('subject');
+        $this->forge->dropTable('subjected'); 
     }
 }
-
 
